@@ -1,0 +1,18 @@
+body {
+  background-color: #3535EC;
+  font-family: 'Press Start 2P', cursive;
+  line-height: 1.4;
+  color: white;
+}
+
+h1 {
+  font-size: 36px;
+  margin-bottom: 16px;
+}
+
+p {
+  font-size: 12px;
+  margin-bottom: 36px;
+}
+
+
