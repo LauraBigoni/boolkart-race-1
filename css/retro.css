@@ -16,3 +16,16 @@ p {
 }
 
 
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.game-area {
+  margin: 20px;
+  border: 2px solid white;  
+  min-height: 100px;
+  min-width: 100px;
+}
+
+

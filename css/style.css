@@ -4,3 +4,36 @@
   box-sizing: border-box;
 }
 
+#start {
+  cursor: pointer;
+  text-align: center;
+}
+
+#scene {
+  padding: 20px;
+  width: 800px;
+}
+
+.track {
+  position: relative;
+  width: 100%;
+  margin: 10px 0;
+  height: 60px;
+  border-bottom: 4px dashed white;
+}
+
+
+.car {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  left: 0px;
+
+}
+
+.name {
+  position: absolute;
+  color: white;
+  top: 0;
+  left: 10px;
+}
