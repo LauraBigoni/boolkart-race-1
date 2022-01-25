@@ -113,10 +113,9 @@ const showResults = (() => {
 
 setupScene();
 
+
 document.getElementById('start').addEventListener('click', () => {
-
   const interval = 125;
-
 
   const playGame = setInterval( () => {
     if (gameOver()) {
