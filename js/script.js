@@ -18,6 +18,20 @@ const cars = [
     currentPosition: 0,
     speed: 0,
   },
+  {
+    name: "Antonio",
+    trackColor: "dodgerblue",
+    id: "car-3",
+    currentPosition: 0,
+    speed: 0,
+  },  
+  {
+    name: "Vasco",
+    trackColor: "black",
+    id: "car-4",
+    currentPosition: 0,
+    speed: 0,
+  },  
 ];
 
 const setupScene = () => {
@@ -26,7 +40,7 @@ const setupScene = () => {
 
   cars.forEach( (car) => {
     car.currentPosition = 0; 
-    car.speed = getRandomNumber(1,10); 
+    car.speed = getRandomNumber(20,60); 
 
     // costruire la pista  newTrack
     const newTrack = renderCar(car);
@@ -59,19 +73,36 @@ const renderCar = (car) => {
 
 const gameOver = (() => {
 
+  let isGameOver = true;
+  for (let i = 0; i < cars.length; i++) {
+    if (cars[i].currentPosition < 800) {
+      isGameOver = false;
+    }
+  }  
 
-  return false;
+  return isGameOver;
 });
 
+const showResults = (() => {
+  alert("game over");
+
+
+
+
+
+});
 
 setupScene();
 
 document.getElementById('start').addEventListener('click', () => {
 
+  const interval = 200;
+
+
   const playGame = setInterval( () => {
     if (gameOver()) {
-      clearInterval(playGame);
-//      showResults();
+       clearInterval(playGame);
+       showResults();
     } else {
 
       cars.forEach( (car) => {
@@ -88,7 +119,7 @@ document.getElementById('start').addEventListener('click', () => {
 
     }
 
-  }, 200); 
+  }, interval); 
 
 
 
