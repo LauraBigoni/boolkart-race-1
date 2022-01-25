@@ -7,6 +7,8 @@
 #start {
   cursor: pointer;
   text-align: center;
+  font-size: 24px;
+  margin: 20px 20px;
 }
 
 #scene {
@@ -39,4 +41,8 @@
   color: white;
   top: 0;
   left: 10px;
+}
+
+.winner {
+  color: red;
 }

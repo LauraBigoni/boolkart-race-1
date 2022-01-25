@@ -10,6 +10,7 @@ const cars = [
     id: "car-1",
     currentPosition: 0,
     speed: 0,
+    time: 0,
   },
   {
     name: "Matteo",
@@ -17,6 +18,7 @@ const cars = [
     id: "car-2",
     currentPosition: 0,
     speed: 0,
+    time: 0,
   },
   {
     name: "Antonio",
@@ -24,6 +26,7 @@ const cars = [
     id: "car-3",
     currentPosition: 0,
     speed: 0,
+    time: 0,
   },  
   {
     name: "Vasco",
@@ -31,6 +34,7 @@ const cars = [
     id: "car-4",
     currentPosition: 0,
     speed: 0,
+    time: 0,
   },  
 ];
 
@@ -41,6 +45,7 @@ const setupScene = () => {
   cars.forEach( (car) => {
     car.currentPosition = 0; 
     car.speed = getRandomNumber(20,60); 
+    car.time = 0; 
 
     // costruire la pista  newTrack
     const newTrack = renderCar(car);
@@ -83,12 +88,26 @@ const gameOver = (() => {
   return isGameOver;
 });
 
+const formatMs = (ms) => {
+  return (ms/1000).toFixed(3);
+}
+
+
 const showResults = (() => {
-  alert("game over");
+  const results = document.getElementById('results');
+  results.innerHTML = "";
 
+  const sorted = cars.sort( (a,b) => ( a.time < b.time ? -1: 1 ) );
 
+  sorted.forEach( (car, index) => {
 
+    const row = document.createElement("div");
+    row.classList.add('result');
+    if (index === 0) row.classList.add('winner');
+    row.append(`${car.name}: ${formatMs(car.time)}"`);
 
+    results.append(row);
+  });  
 
 });
 
@@ -96,7 +115,7 @@ setupScene();
 
 document.getElementById('start').addEventListener('click', () => {
 
-  const interval = 200;
+  const interval = 125;
 
 
   const playGame = setInterval( () => {
@@ -113,6 +132,7 @@ document.getElementById('start').addEventListener('click', () => {
           carBody.style.left = "805px";
         } else {
           carBody.style.left = car.currentPosition + "px";
+          car.time += interval;
         }        
 
       });
