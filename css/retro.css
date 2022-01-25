@@ -22,10 +22,13 @@ p {
 }
 
 .game-area {
+  position: relative;
   margin: 20px;
   border: 2px solid white;  
-  min-height: 100px;
-  min-width: 100px;
+  margin: 20px;
+  padding-right: 80px;;
 }
 
-
+.game-data{
+  padding: 20px;
+}

@@ -9,12 +9,14 @@ const cars = [
     trackColor: "red",
     id: "car-1",
     currentPosition: 0,
+    speed: 0,
   },
   {
     name: "Matteo",
     trackColor: "pink",
     id: "car-2",
     currentPosition: 0,
+    speed: 0,
   },
 ];
 
@@ -23,7 +25,8 @@ const setupScene = () => {
   scene.innerHTML = "";
 
   cars.forEach( (car) => {
-    car.currentPosition = 0;  
+    car.currentPosition = 0; 
+    car.speed = getRandomNumber(1,10); 
 
     // costruire la pista  newTrack
     const newTrack = renderCar(car);
@@ -73,10 +76,10 @@ document.getElementById('start').addEventListener('click', () => {
 
       cars.forEach( (car) => {
         const carBody = document.getElementById(car.id);
-        car.currentPosition +=10;
+        car.currentPosition += car.speed;
 
         if (car.currentPosition >= 800) {
-
+          carBody.style.left = "805px";
         } else {
           carBody.style.left = car.currentPosition + "px";
         }        
